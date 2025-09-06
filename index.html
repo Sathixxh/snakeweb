@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🎉 - Amazing Friend</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8b5cf6;
+            --primary-light: #a855f7;
+            --secondary: #ec4899;
+            --background: #ffffff;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --purple-50: #faf5ff;
+            --purple-100: #f3e8ff;
+            --pink-50: #fdf2f8;
+            --gradient-primary: linear-gradient(135deg, #8b5cf6, #ec4899);
+            --gradient-secondary: linear-gradient(135deg, #a855f7, #f472b6);
+            --shadow-purple: 0 25px 50px rgba(139, 92, 246, 0.2);
+            --shadow-glow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+            padding: 1rem 0;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .logo-text {
+            font-size: 1.125rem;
+            font-weight: 600;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 0.5rem;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--purple-50), #ffffff, var(--pink-50));
+        }
+
+        .floating-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { width: 12px; height: 12px; background: #a855f7; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 8px; height: 8px; background: #ec4899; top: 60%; left: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 6px; height: 6px; background: #fbbf24; top: 30%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 10px; height: 10px; background: #8b5cf6; top: 80%; left: 70%; animation-delay: 0.5s; }
+        .particle:nth-child(5) { width: 4px; height: 4px; background: #f472b6; top: 40%; left: 90%; animation-delay: 1.5s; }
+        .particle:nth-child(6) { width: 14px; height: 14px; background: #34d399; top: 70%; left: 15%; animation-delay: 2.5s; }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: slideInLeft 1.2s ease-out 0.2s both;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .title-happy {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899, #8b5cf6);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s ease-in-out infinite;
+        }
+
+        .title-birthday {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6, #ec4899);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 5s ease-in-out infinite 0.5s;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.5s ease-out 0.8s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px) scale(1.05);
+            background: rgba(139, 92, 246, 0.1);
+            border-color: var(--primary-light);
+        }
+
+        /* Blob Animation */
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            animation: slideInRight 1.2s ease-out 0.3s both;
+        }
+
+        .blob-container {
+            position: relative;
+            animation: gentleFloat 8s ease-in-out infinite;
+        }
+
+        .blob {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            filter: drop-shadow(var(--shadow-purple));
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            /* animation: blobMorph 12s ease-in-out infinite; */
+        }
+
+        .blob img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: imageScale 6s ease-in-out infinite;
+        }
+
+        .floating-decorations {
+            position: absolute;
+        }
+
+        .decoration {
+            position: absolute;
+            border-radius: 50%;
+            filter: drop-shadow(0 10px 20px rgba(139, 92, 246, 0.3));
+        }
+
+        .decoration-1 {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8b5cf6, #ec4899);
+            top: -24px;
+            left: -24px;
+            animation: decorationFloat1 4s ease-in-out infinite;
+        }
+
+        .decoration-2 {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            bottom: -24px;
+            right: -24px;
+            animation: decorationFloat2 5s ease-in-out infinite;
+        }
+
+        .decoration-3 {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            top: 50%;
+            right: -40px;
+            animation: decorationFloat3 3s ease-in-out infinite;
+        }
+
+        .decoration-4 {
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #34d399, #10b981);
+            top: 25%;
+            left: -32px;
+            animation: decorationFloat4 3.5s ease-in-out infinite;
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .sparkle-1 { top: 32px; right: 32px; animation: sparkle 2s ease-in-out infinite 0.5s; }
+        .sparkle-2 { bottom: 48px; left: 48px; animation: sparkle 2s ease-in-out infinite 1.2s; }
+        .sparkle-3 { top: 80px; left: 80px; animation: sparkle 2s ease-in-out infinite 1.8s; }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-memories {
+            background: linear-gradient(180deg, #ffffff, var(--purple-50));
+        }
+
+        .section-journey {
+            background: linear-gradient(180deg, var(--purple-50), #ffffff);
+        }
+
+        .section-celebration {
+            background: linear-gradient(180deg, #ffffff, var(--purple-50), #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Memory Grid */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .memory-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.2);
+        }
+
+        .memory-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .memory-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .memory-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .memory-card:hover .memory-card-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Journey Timeline */
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            overflow: hidden;
+            display: flex;
+            gap: 0;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.2);
+        }
+
+        .timeline-media {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-media img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .timeline-card:hover .timeline-media img {
+            transform: scale(1.05);
+        }
+
+        .timeline-text {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .video-media {
+            cursor: pointer;
+        }
+
+        .video-media:hover .video-overlay {
+            opacity: 1;
+        }
+
+        /* Celebration Grid */
+        .celebration-floating {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .celebration-particle {
+            position: absolute;
+            animation: celebrationFloat 4s ease-in-out infinite;
+        }
+
+        .celebration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .celebration-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+
+        .celebration-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(139, 92, 246, 0.2);
+        }
+
+        .celebration-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .celebration-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .celebration-item.video:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.2);
+        }
+
+        /* Birthday Message */
+        .birthday-message {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem;
+            border-radius: 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .birthday-message::before {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 32px;
+            height: 32px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+
+        .birthday-message::after {
+            content: '';
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            width: 48px;
+            height: 48px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+
+        .birthday-emoji {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.7; }
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(3deg) scale(1.01); }
+            50% { transform: rotate(0deg) scale(1.02); }
+            75% { transform: rotate(-3deg) scale(1.01); }
+        }
+
+        @keyframes blobMorph {
+            0%, 100% { clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); }
+            20% { clip-path: polygon(20% 10%, 80% 0%, 90% 40%, 100% 60%, 80% 90%, 40% 100%, 10% 80%, 0% 40%); }
+            40% { clip-path: polygon(40% 0%, 60% 10%, 100% 20%, 90% 80%, 60% 100%, 20% 90%, 0% 60%, 10% 20%); }
+            60% { clip-path: polygon(25% 0%, 75% 5%, 95% 35%, 100% 65%, 75% 95%, 35% 100%, 5% 75%, 0% 25%); }
+            80% { clip-path: polygon(35% 5%, 65% 0%, 100% 35%, 95% 75%, 65% 100%, 25% 95%, 0% 65%, 5% 25%); }
+        }
+
+        @keyframes imageScale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes decorationFloat1 {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-15px) translateX(5px) rotate(180deg) scale(1.1); }
+        }
+
+        @keyframes decorationFloat2 {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(15px) translateX(-8px) rotate(-180deg) scale(1.2); }
+        }
+
+        @keyframes decorationFloat3 {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(-8px) translateX(12px) rotate(90deg) scale(1.3); }
+        }
+
+        @keyframes decorationFloat4 {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg) scale(1); }
+            50% { transform: translateY(12px) translateX(-10px) rotate(270deg) scale(1.4); }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes celebrationFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 1; }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(5deg); }
+            50% { transform: translateY(0px) rotate(10deg); }
+            75% { transform: translateY(-5px) rotate(-5deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 2rem;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 4rem;
+            }
+
+            .timeline-dot {
+                left: 2rem;
+                transform: translateY(-50%);
+            }
+
+            .timeline-card {
+                flex-direction: column;
+            }
+
+            .timeline-media {
+                height: 200px;
+            }
+
+            .timeline-media img {
+                height: 200px;
+            }
+
+            .nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .blob {
+                width: 250px;
+                height: 250px;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .timeline-card {
+                flex-direction: column;
+            }
+
+            .timeline-media {
+                height: 180px;
+            }
+
+            .timeline-media img {
+                height: 180px;
+            }
+
+            .timeline-text {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Intersection Observer Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        
+.about-title {
+	font-size: 7.5rem;
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+	position: absolute;
+	top: 45px;
+	left: 50%;
+	transform: translateX(-50%);
+	pointer-events: none;
+	white-space: nowrap;
+	font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+	background: linear-gradient(
+		to bottom,
+		rgb(8 42 123 / 35%) 30%,
+		rgb(255 255 255 / 0%) 76%
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.carousel-container {
+  
+	width: 100%;
+	/* max-width: 1200px; */
+	height: 450px;
+	position: relative;
+	perspective: 1000px;
+	margin-top: 80px;
+
+
+}
+
+.carousel-track {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	transform-style: preserve-3d;
+	transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card {
+	position: absolute;
+	width: 280px;
+	height: 380px;
+	background: white;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	cursor: pointer;
+}
+
+.card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card.center {
+	z-index: 10;
+	transform: scale(1.1) translateZ(0);
+}
+
+.card.center img {
+	filter: none;
+}
+
+.card.left-2 {
+	z-index: 1;
+	transform: translateX(-400px) scale(0.8) translateZ(-300px);
+	opacity: 0.7;
+}
+
+.card.left-2 img {
+	filter: grayscale(100%);
+}
+
+.card.left-1 {
+	z-index: 5;
+	transform: translateX(-200px) scale(0.9) translateZ(-100px);
+	opacity: 0.9;
+}
+
+.card.left-1 img {
+	filter: grayscale(100%);
+}
+
+.card.right-1 {
+	z-index: 5;
+	transform: translateX(200px) scale(0.9) translateZ(-100px);
+	opacity: 0.9;
+}
+
+.card.right-1 img {
+	filter: grayscale(100%);
+}
+
+.card.right-2 {
+	z-index: 1;
+	transform: translateX(400px) scale(0.8) translateZ(-300px);
+	opacity: 0.7;
+}
+
+.card.right-2 img {
+	filter: grayscale(100%);
+}
+
+.card.hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.member-info {
+	text-align: center;
+	margin-top: 40px;
+	transition: all 0.5s ease-out;
+}
+
+.member-name {
+	color: rgb(8, 42, 123);
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-bottom: 10px;
+	position: relative;
+	display: inline-block;
+}
+
+.member-name::before,
+.member-name::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	width: 100px;
+	height: 2px;
+	background: rgb(8, 42, 123);
+}
+
+.member-name::before {
+	left: -120px;
+}
+
+.member-name::after {
+	right: -120px;
+}
+
+.member-role {
+	color: #848696;
+	font-size: 1.5rem;
+	font-weight: 500;
+	opacity: 0.8;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 10px 0;
+	margin-top: -15px;
+	position: relative;
+}
+.dots {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 60px;
+}
+
+.dot {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: rgba(8, 42, 123, 0.2);
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.dot.active {
+	background: rgb(8, 42, 123);
+	transform: scale(1.2);
+}
+
+.nav-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: rgba(8, 42, 123, 0.6);
+	color: white;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 20;
+	transition: all 0.3s ease;
+	font-size: 1.5rem;
+	border: none;
+	outline: none;
+	padding-bottom: 4px;
+}
+
+.nav-arrow:hover {
+	background: rgba(0, 0, 0, 0.8);
+	transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow.left {
+	left: 20px;
+	padding-right: 3px;
+}
+
+.nav-arrow.right {
+	right: 20px;
+	padding-left: 3px;
+}
+
+@media (max-width: 768px) {
+	.about-title {
+		font-size: 4.5rem;
+	}
+
+	.card {
+		width: 200px;
+		height: 280px;
+	}
+
+	.card.left-2 {
+		transform: translateX(-250px) scale(0.8) translateZ(-300px);
+	}
+
+	.card.left-1 {
+		transform: translateX(-120px) scale(0.9) translateZ(-100px);
+	}
+
+	.card.right-1 {
+		transform: translateX(120px) scale(0.9) translateZ(-100px);
+	}
+
+	.card.right-2 {
+		transform: translateX(250px) scale(0.8) translateZ(-300px);
+	}
+
+	.member-name {
+		font-size: 2rem;
+	}
+
+	.member-role {
+		font-size: 1.2rem;
+	}
+
+	.member-name::before,
+	.member-name::after {
+		width: 50px;
+	}
+
+	.member-name::before {
+		left: -70px;
+	}
+
+	.member-name::after {
+		right: -70px;
+	}
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">💜</div>
+                <span class="logo-text">Birthday Wishes</span>
+            </div>
+            <nav class="nav">
+                <a href="#home">Home</a>
+                <a href="#memories">Memories</a>
+                <a href="#journey">Journey</a>
+                <a href="#celebration">Celebration</a>
+            </nav>
+            <div class="header-icons">
+                <span style="color: var(--primary); font-size: 1.25rem;">✨</span>
+                <span style="color: var(--secondary); font-size: 1.25rem;">🎁</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <div class="title-happy">Happy</div>
+                    <div class="title-birthday ">Birthday!</div>
+                </h1>
+                <div class="hero-description">
+                    <p>To my amazing friend, on your special day, I wanted to create something unique just for you! This website is filled with our beautiful memories and the incredible journey we've shared together.</p>
+                    <p style="margin-top: 1rem; font-size: 1.125rem;">May this new year of your life be filled with joy, laughter, and endless adventures! You deserve all the happiness in the world! 🎉</p>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#memories" class="btn btn-primary">Explore Memories</a>
+                    <a href="#journey" class="btn btn-secondary">Our Journey</a>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="blob-container">
+                    <div class="blob">
+                        <img src="assets/digital-marketing.png" alt="Best Friend">
+                    </div>
+                    <div class="floating-decorations">
+                        <div class="decoration decoration-1"></div>
+                        <div class="decoration decoration-2"></div>
+                        <div class="decoration decoration-3"></div>
+                        <div class="decoration decoration-4"></div>
+                        <div class="sparkles sparkle-1"></div>
+                        <div class="sparkles sparkle-2"></div>
+                        <div class="sparkles sparkle-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memories Section -->
+    <section id="memories" class="section section-memories">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Our Beautiful Memories</h2>
+                <p>Every moment we've shared has been a treasure. Here are some of our most cherished memories together.</p>
+            </div>
+            
+            <div class="memory-grid">
+                <div class="memory-card animate-on-scroll stagger-1">
+                    <img src="https://images.unsplash.com/photo-1544900721-8df5e37f0371?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGJpcnRoZGF5JTIwY2VsZWJyYXRpb24lMjBmcmllbmRzfGVufDF8fHx8MTc1NzE0MTY5M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Birthday Celebrations">
+                    <div class="memory-card-content">
+                        <h3>Birthday Celebrations</h3>
+                        <p>All those amazing birthday parties we've shared together!</p>
+                    </div>
+                </div>
+                
+                <div class="memory-card animate-on-scroll stagger-2">
+                    <img src="https://images.unsplash.com/photo-1729867302122-961e73e29416?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmllbmRzJTIwbWVtb3JpZXMlMjB0b2dldGhlcnxlbnwxfHx8fDE3NTcxNDE2OTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Adventures Together">
+                    <div class="memory-card-content">
+                        <h3>Adventures Together</h3>
+                        <p>Our incredible adventures and spontaneous trips!</p>
+                    </div>
+                </div>
+                
+                <div class="memory-card animate-on-scroll stagger-3">
+                    <img src="https://images.unsplash.com/photo-1650584997985-e713a869ee77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiaXJ0aGRheSUyMHBhcnR5JTIwY2VsZWJyYXRpb258ZW58MXx8fHwxNzU3MTE5NDg4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Party Moments">
+                    <div class="memory-card-content">
+                        <h3>Party Moments</h3>
+                        <p>Dancing, laughing, and making unforgettable memories!</p>
+                    </div>
+                </div>
+                
+                <div class="memory-card animate-on-scroll stagger-4">
+                    <img src="https://images.unsplash.com/photo-1722013607453-5259e321e940?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmllbmRzaGlwJTIwbW9tZW50cyUyMGhhcHB5fGVufDF8fHx8MTc1NzE0MTY5NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Happy Moments">
+                    <div class="memory-card-content">
+                        <h3>Happy Moments</h3>
+                        <p>Simple moments that turned into beautiful memories!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+
+<div class="carousel-container">
+	<button class="nav-arrow left">‹</button>
+	<div class="carousel-track">
+		<div class="card" data-index="0">
+			<img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team Member 1">
+		</div>
+		<div class="card" data-index="1">
+			<img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team Member 2">
+		</div>
+		<div class="card" data-index="2">
+			<img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmVzc2lvbmFsJTIwcGVvcGxlfGVufDB8fDB8fHww" alt="Team Member 3">
+		</div>
+		<div class="card" data-index="3">
+			<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvZmVzc2lvbmFsJTIwcGVvcGxlfGVufDB8fDB8fHww" alt="Team Member 4">
+		</div>
+		<div class="card" data-index="4">
+			<img src="https://images.unsplash.com/photo-1655249481446-25d575f1c054?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHByb2Zlc3Npb25hbCUyMHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D" alt="Team Member 5">
+		</div>
+		<div class="card" data-index="5">
+			<img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team Member 6">
+		</div>
+	</div>
+	<button class="nav-arrow right">›</button>
+</div>
+
+<div class="member-info">
+	<h2 class="member-name">David Kim</h2>
+	<p class="member-role">Founder</p>
+</div>
+
+<div class="dots">
+	<div class="dot active" data-index="0"></div>
+	<div class="dot" data-index="1"></div>
+	<div class="dot" data-index="2"></div>
+	<div class="dot" data-index="3"></div>
+	<div class="dot" data-index="4"></div>
+	<div class="dot" data-index="5"></div>
+</div>
+
+    <!-- Journey Timeline Section -->
+    <section id="journey" class="section section-journey">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Our Amazing Journey</h2>
+                <p>From the moment we met to all the incredible adventures we've shared, here's the story of our beautiful friendship.</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-card">
+                            <div class="timeline-media">
+                                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmllbmRzJTIwbWVldGluZyUyMGZpcnN0JTIwdGltZXxlbnwxfHx8fDE3NTcxNDE2OTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="First Meeting">
+                            </div>
+                            <div class="timeline-text">
+                                <span class="timeline-year">2020</span>
+                                <h3>We First Met 💜</h3>
+                                <p>The beginning of an amazing friendship that would change our lives forever! Who knew that first conversation would lead to so many incredible memories.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-card">
+                            <div class="timeline-media video-media">
+                                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZHZlbnR1cmUlMjB0cmlwJTIwZnJpZW5kc3xlbnwxfHx8fDE3NTcxNDE2OTV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="First Adventure">
+                                <div class="video-overlay">
+                                    <div class="play-button">▶</div>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <span class="timeline-year">2021</span>
+                                <h3>First Adventure ⭐</h3>
+                                <p>Our first big adventure together - what a memorable experience that was! This video captures all the fun and laughter we shared during that amazing trip.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-card">
+                            <div class="timeline-media">
+                                <img src="https://images.unsplash.com/photo-1544900721-8df5e37f0371?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGJpcnRoZGF5JTIwY2VsZWJyYXRpb24lMjBmcmllbmRzfGVufDF8fHx8MTc1NzE0MTY5M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Birthday Celebrations">
+                            </div>
+                            <div class="timeline-text">
+                                <span class="timeline-year">2022</span>
+                                <h3>Countless Celebrations 🎁</h3>
+                                <p>Birthdays, achievements, and all the special moments we celebrated together! Every celebration became more meaningful because we shared it.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <!-- <video
+  controls
+  preload="metadata"
+  poster="assets/digital-marketing.png"
+  style="max-width:100%; height:auto; display:block"
+>
+  <source src="assets/Screencast from 06-09-25 03:13:24 PM IST.webm" type="video/mp4" />
+  <source src="assets/Screencast from 06-09-25 03:13:24 PM IST.webm" type="video/webm" />
+  Your browser does not support the video tag.
+</video> -->
+
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-card">
+                            <div class="timeline-media video-media">
+                                <img src="assets/Screencast from 06-09-25 03:13:24 PM IST.webm alt="Growing Stronger">
+                                <div class="video-overlay">
+                                    <div class="play-button">▶</div>
+                                </div>
+                            </div>
+                            <div class="timeline-text">
+                                <span class="timeline-year">2023</span>
+                                <h3>Growing Stronger 💚</h3>
+                                <p>Through ups and downs, our friendship only grew stronger and more meaningful! This video shows some of our most heartfelt moments together.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-content">
+                        <div class="timeline-card">
+                            <div class="timeline-media">
+                                <img src="https://images.unsplash.com/photo-1650584997985-e713a869ee77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiaXJ0aGRheSUyMHBhcnR5JTIwY2VsZWJyYXRpb258ZW58MXx8fHwxNzU3MTE5NDg4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Present Moments">
+                            </div>
+                            <div class="timeline-text">
+                                <span class="timeline-year">2024</span>
+                                <h3>Amazing Present 🌟</h3>
+                                <p>This year has brought us even closer, and now we're celebrating another birthday together! Here's to many more years of amazing friendship!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Celebration Section -->
+    <section id="celebration" class="section section-celebration">
+        <div class="celebration-floating">
+            <div class="celebration-particle" style="top: 20%; left: 10%; color: var(--primary); font-size: 1.2rem;">💜</div>
+            <div class="celebration-particle" style="top: 60%; left: 20%; color: var(--secondary); font-size: 1rem;">✨</div>
+            <div class="celebration-particle" style="top: 30%; left: 80%; color: #fbbf24; font-size: 0.8rem;">🌟</div>
+            <div class="celebration-particle" style="top: 80%; left: 70%; color: var(--primary); font-size: 1.2rem;">💜</div>
+            <div class="celebration-particle" style="top: 40%; left: 90%; color: var(--secondary); font-size: 1rem;">✨</div>
+        </div>
+        
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Let's Celebrate! 🎉</h2>
+                <p>A collection of our most joyful moments, captured in photos and videos. Each one tells a story of our incredible friendship!</p>
+            </div>
+            
+            <div class="celebration-grid">
+                <div class="celebration-item animate-on-scroll stagger-1">
+                    <img src="https://images.unsplash.com/photo-1544900721-8df5e37f0371?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGJpcnRoZGF5JTIwY2VsZWJyYXRpb24lMjBmcmllbmRzfGVufDF8fHx8MTc1NzE0MTY5M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Birthday Surprise">
+                </div>
+                
+                <div class="celebration-item video animate-on-scroll stagger-2">
+                    <img src="https://images.unsplash.com/photo-1650584997985-e713a869ee77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiaXJ0aGRheSUyMHBhcnR5JTIwY2VsZWJyYXRpb258ZW58MXx8fHwxNzU3MTE5NDg4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Dance Party">
+                    <div class="video-overlay">
+                        <div class="play-button">▶</div>
+                    </div>
+                </div>
+                
+                <div class="celebration-item animate-on-scroll stagger-3">
+                    <img src="https://images.unsplash.com/photo-1722013607453-5259e321e940?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmllbmRzaGlwJTIwbW9tZW50cyUyMGhhcHB5fGVufDF8fHx8MTc1NzE0MTY5NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Candid Moments">
+                </div>
+                
+                <div class="celebration-item video animate-on-scroll stagger-4">
+                    <img src="https://images.unsplash.com/photo-1729867302122-961e73e29416?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmllbmRzJTIwbWVtb3JpZXMlMjB0b2dldGhlcnxlbnwxfHx8fDE3NTcxNDE2OTN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral" alt="Adventure Time">
+                    <div class="video-overlay">
+                        <div class="play-button">▶</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="birthday-message animate-on-scroll">
+                <div class="birthday-emoji">🎂</div>
+                <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Wishing You the Happiest Birthday Ever! 🎈</h3>
+                <p style="font-size: 1.25rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+                    Thank you for being such an amazing friend, for all the laughter, adventures, and unforgettable moments we've shared. 
+                    Here's to many more years of friendship, fun, and fantastic memories together!
+                </p>
+                <div style="margin-top: 2rem; font-size: 1.5rem;">💜 With all my love 💜</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-emoji">🎉🎂🎈</div>
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;">Happy Birthday, Amazing Friend! 🎊</h3>
+            <p style="font-size: 1.125rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem;">
+                This website was created with so much love to celebrate you and our incredible friendship. 
+                May your special day be filled with joy, laughter, and all your favorite things!
+            </p>
+            <div style="font-size: 0.875rem; opacity: 0.75;">
+                Made with 💜 for the best friend ever • September 2024
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add click handlers for celebration items
+        document.querySelectorAll('.celebration-item').forEach(item => {
+            item.addEventListener('click', function() {
+                if (this.classList.contains('video')) {
+                    // Handle video play (you can replace this with actual video modal)
+                    alert('Video would play here! Replace this with your actual video.');
+                } else {
+                    // Handle image enlargement (you can add a modal here)
+                    alert('Image enlargement modal would open here!');
+                }
+            });
+        });
+
+        // Add click handlers for timeline video items
+        document.querySelectorAll('.video-media').forEach(videoMedia => {
+            videoMedia.addEventListener('click', function() {
+                // Handle timeline video play (you can replace this with actual video modal)
+                alert('Timeline video would play here! Replace this with your actual video.');
+            });
+        });
+
+        // Add some dynamic particle generation
+        function createFloatingParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = Math.random() * 6 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.backgroundColor = ['#8b5cf6', '#ec4899', '#fbbf24', '#34d399'][Math.floor(Math.random() * 4)];
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = window.innerHeight + 'px';
+            particle.style.opacity = '0.6';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1';
+            
+            document.body.appendChild(particle);
+            
+            // Animate particle
+            particle.animate([
+                { transform: 'translateY(0px) rotate(0deg)', opacity: 0.6 },
+                { transform: `translateY(-${window.innerHeight + 100}px) rotate(360deg)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'ease-out'
+            }).onfinish = () => particle.remove();
+        }
+
+        // Create floating particles periodically
+        setInterval(createFloatingParticle, 2000);
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.8)';
+            }
+        });
+        const teamMembers = [
+	{ name: "Emily Kim", role: "Founder" },
+	{ name: "Michael Steward", role: "Creative Director" },
+	{ name: "Emma Rodriguez", role: "Lead Developer" },
+	{ name: "Julia Gimmel", role: "UX Designer" },
+	{ name: "Lisa Anderson", role: "Marketing Manager" },
+	{ name: "James Wilson", role: "Product Manager" }
+];
+
+const cards = document.querySelectorAll(".card");
+const dots = document.querySelectorAll(".dot");
+const memberName = document.querySelector(".member-name");
+const memberRole = document.querySelector(".member-role");
+const leftArrow = document.querySelector(".nav-arrow.left");
+const rightArrow = document.querySelector(".nav-arrow.right");
+let currentIndex = 0;
+let isAnimating = false;
+
+function updateCarousel(newIndex) {
+	if (isAnimating) return;
+	isAnimating = true;
+
+	currentIndex = (newIndex + cards.length) % cards.length;
+
+	cards.forEach((card, i) => {
+		const offset = (i - currentIndex + cards.length) % cards.length;
+
+		card.classList.remove(
+			"center",
+			"left-1",
+			"left-2",
+			"right-1",
+			"right-2",
+			"hidden"
+		);
+
+		if (offset === 0) {
+			card.classList.add("center");
+		} else if (offset === 1) {
+			card.classList.add("right-1");
+		} else if (offset === 2) {
+			card.classList.add("right-2");
+		} else if (offset === cards.length - 1) {
+			card.classList.add("left-1");
+		} else if (offset === cards.length - 2) {
+			card.classList.add("left-2");
+		} else {
+			card.classList.add("hidden");
+		}
+	});
+
+	dots.forEach((dot, i) => {
+		dot.classList.toggle("active", i === currentIndex);
+	});
+
+	memberName.style.opacity = "0";
+	memberRole.style.opacity = "0";
+
+	setTimeout(() => {
+		memberName.textContent = teamMembers[currentIndex].name;
+		memberRole.textContent = teamMembers[currentIndex].role;
+		memberName.style.opacity = "1";
+		memberRole.style.opacity = "1";
+	}, 300);
+
+	setTimeout(() => {
+		isAnimating = false;
+	}, 800);
+}
+
+leftArrow.addEventListener("click", () => {
+	updateCarousel(currentIndex - 1);
+});
+
+rightArrow.addEventListener("click", () => {
+	updateCarousel(currentIndex + 1);
+});
+
+dots.forEach((dot, i) => {
+	dot.addEventListener("click", () => {
+		updateCarousel(i);
+	});
+});
+
+cards.forEach((card, i) => {
+	card.addEventListener("click", () => {
+		updateCarousel(i);
+	});
+});
+
+document.addEventListener("keydown", (e) => {
+	if (e.key === "ArrowLeft") {
+		updateCarousel(currentIndex - 1);
+	} else if (e.key === "ArrowRight") {
+		updateCarousel(currentIndex + 1);
+	}
+});
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", (e) => {
+	touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", (e) => {
+	touchEndX = e.changedTouches[0].screenX;
+	handleSwipe();
+});
+
+function handleSwipe() {
+	const swipeThreshold = 50;
+	const diff = touchStartX - touchEndX;
+
+	if (Math.abs(diff) > swipeThreshold) {
+		if (diff > 0) {
+			updateCarousel(currentIndex + 1);
+		} else {
+			updateCarousel(currentIndex - 1);
+		}
+	}
+}
+
+updateCarousel(0);
+
+    </script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure CSS Responsive Hex Grid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;700&family=Sour+Gummy:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom properties for division support */
+        @supports not (scale: calc(100cqh/3lh)) {
+            @property --p { 
+                syntax: '<length-percentage>';
+                initial-value: 0px;
+                inherits: true
+            }
+            @property --q { 
+                syntax: '<length-percentage>';
+                initial-value: 0px;
+                inherits: true
+            }
+        }
+
+        * { 
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html, body { 
+            display: grid;
+        }
+
+        
+
+        body {
+            container-type: inline-size;
+            justify-self: center;
+            width: clamp(200px, 100%, 1400px);
+            font: clamp(.625em, 3vmin, 1.25em)/ 1.25 'Saira', sans-serif;
+            text-align: center;
+        }
+
+        h1, b {
+            font-family: 'Sour Gummy', sans-serif;
+            text-wrap: balance;
+        }
+
+        h1 {
+            margin-bottom: 0.5em;
+            font-size: clamp(1.5em, 5vw, 2.5em);
+        }
+
+        header em {
+            display: block;
+            font-style: italic;
+            opacity: 0.8;
+            margin: 0.5em 0;
+        }
+
+        header p {
+            margin: 1em 0 2em;
+            opacity: 0.7;
+        }
+
+        main {
+            --w: 100cqw; /* container content-box width */
+            --u: 6em; /* unit column width */
+            --s: max(.25rem, 1vmin); /* gap size */
+            --p: calc(var(--w) + var(--s)); /* numerator */
+            --q: calc(var(--u) + var(--s)); /* denominator */
+            --f: var(--p)/var(--q);
+            /* number of columns of width u that fit in w 
+             * when having a gap space s between them */
+            --n: max(1, round(down, var(--f)));
+            display: grid;
+            /* compute row gap out of column one */
+            grid-gap: calc(.5*var(--s)*sqrt(3)) var(--s);
+            grid-template-columns: repeat(var(--n), 1fr);
+            justify-content: center;
+            margin: calc(.5*var(--u)) 0;
+            filter: drop-shadow(2px 2px 5px #000);
+        }
+
+        /* Fallback for browsers without division support */
+        @supports not (scale: calc(100cqh/3lh)) {
+            main {
+                --f: round(tan(atan2(var(--p), var(--q))), .00001);
+            }
+        }
+
+        main a {
+            /* how many hex fit on odd (1st, 3rd...) rows
+             * (a sort of mid index) */
+            --m: round(down, .5*var(--n));
+            /* index of hex among a pair of odd + even rows */
+            --j: mod(var(--i), var(--n) - 1);
+            /* 1 if on an even row (j > m) */
+            --e: clamp(0, var(--j) - var(--m) + 1, 1);
+            display: grid;
+            grid-column: 
+                /* mod() is index on every row, odd or even;
+                 * double it since ever hex spans 2 columns
+                 * add 1 since index is 0-based 
+                 * and column numbering is 1-based;
+                 * finally, add e to column start, 
+                 * which is 0 on odd rows, 1 on even ones */
+                calc(2*mod(var(--j), var(--m)) + 1 + var(--e))/
+                /* every hex stretches across two columns */
+                span 2;
+            overflow: hidden;
+            margin: calc(-25%/sqrt(3)) 0;
+            clip-path: polygon(50% 0, 150% 50%, 50% 100%, -50% 50%);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        main a:is(:hover, :focus) { 
+            --hov: 1;
+        }
+
+        img {
+            width: 100%;
+            aspect-ratio: sqrt(3)/ 2;
+            object-fit: cover;
+            scale: calc(1 + var(--hov, 0)*.25);
+            filter: saturate(var(--hov, 0));
+            transition: .65s ease-out;
+        }
+
+        footer {
+            margin: 2em auto 0;
+            width: min(100%, 50em);
+        }
+
+        footer b {
+            display: block;
+            margin-bottom: 1em;
+            font-size: 1.2em;
+        }
+
+        footer p {
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        footer a { 
+            color: gold;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pure CSS responsive hex grid 🎇 with no media queries 🎇</h1>
+        <em>minimal code, ~25 relevant CSS declarations</em>
+        <p>in the future, things should get even simpler with sibling-index()</p>
+    </header>
+
+    <main>
+        <a href="https://unsplash.com/photos/lion-lying-on-brown-rock-MUeeyzsjiY8" target="_blank" style="--i: 0">
+            <img src="https://images.unsplash.com/photo-1583499871880-de841d1ace2a?h=500" 
+                 alt="lion couple kissing on a brown rock" 
+                 style="object-position: 47% 35%">
+        </a>
+        <a href="https://unsplash.com/photos/shallow-focus-photo-of-black-elephants-hZhhVLLKJQ4" target="_blank" style="--i: 1">
+            <img src="https://images.unsplash.com/photo-1571406761758-9a3eed5338ef?h=500" 
+                 alt="herd of Sri Lankan elephants walking away from a river" 
+                 style="object-position: 75% 65%">
+        </a>
+        <a href="https://unsplash.com/photos/black-and-brown-bird-in-close-up-photography-LkrOEupiVt8" target="_blank" style="--i: 2">
+            <img src="https://images.unsplash.com/photo-1619664208054-41eefeab29e9?h=500" 
+                 alt="close-up of a black cockatoo" 
+                 style="object-position: 53% 43%">
+        </a>
+        <a href="https://unsplash.com/photos/a-group-of-camels-in-a-desert-uIzCnO-gOrw" target="_blank" style="--i: 3">
+            <img src="https://images.unsplash.com/photo-1662841238473-f4b137e123cb?h=500" 
+                 alt="camel and her new born calf walking in the Sahara desert" 
+                 style="object-position: 65% 65%">
+        </a>
+        <a href="https://unsplash.com/photos/polar-bear-on-snow-covered-ground-during-daytime-AZ31hv9kdzE" target="_blank" style="--i: 4">
+            <img src="https://images.unsplash.com/photo-1589648751789-c8ecb7a88bd5?h=500" 
+                 alt="polar bear on the snow, by the water, raised on the hind legs, front paws together" 
+                 style="object-position: 50% 25%">
+        </a>
+        <a href="https://unsplash.com/photos/a-deer-with-antlers-in-a-field-jVvl_2cQO5s" target="_blank" style="--i: 5">
+            <img src="https://images.unsplash.com/photo-1662187554571-f54ea9657d88?h=500" 
+                 alt="waterbuck in a field, looking at the camera" 
+                 style="object-position: 47%">
+        </a>
+        <a href="https://unsplash.com/photos/a-panda-bear-in-a-tree-e0mrn3XDatU" target="_blank" style="--i: 6">
+            <img src="https://images.unsplash.com/photo-1659540181281-1d89d6112832?h=500" 
+                 alt="giant panda hanging from a tree branch" 
+                 style="object-position: 47%">
+        </a>
+        <a href="https://unsplash.com/photos/zebra-standing-on-wheat-field-ZqYPM8i60F8" target="_blank" style="--i: 7">
+            <img src="https://images.unsplash.com/photo-1526095179574-86e545346ae6?h=500" 
+                 alt="zebra standing on wheat field, looking back towards the camera" 
+                 style="object-position: 65% 35%">
+        </a>
+        <a href="https://unsplash.com/photos/leopard-sitting-on-grass-field-3pekyY0-yOw" target="_blank" style="--i: 8">
+            <img src="https://images.unsplash.com/photo-1541707519942-08fd2f6480ba?h=500" 
+                 alt="cheetah sitting in the grass under a blue sky">
+        </a>
+       
+        <a href="https://unsplash.com/photos/a-red-panda-is-sitting-in-a-tree-oVNDSIUQrdc" target="_blank" style="--i: 10">
+            <img src="https://images.unsplash.com/photo-1689799513565-44d2bc09d75b?h=500" 
+                 alt="a red panda in a tree">
+        </a>
+        <a href="https://unsplash.com/photos/a-leopard-lying-on-a-rock-VDESlNV85qE" target="_blank" style="--i: 11">
+            <img src="https://images.unsplash.com/photo-1651611136918-a8a2f8bba419?h=500" 
+                 alt="pensive young leopard on a rock" 
+                 style="object-position: 43% 47%">
+        </a>
+        <a href="https://unsplash.com/photos/blue-and-yellow-macaw-on-brown-tree-branch-during-daytime-wKFd2EhyRAY" target="_blank" style="--i: 12">
+            <img src="https://images.unsplash.com/photo-1624210146024-1046a266038e?h=500" 
+                 alt="two hyacinth macaws on a tree branch" 
+                 style="object-position: 65% 35%">
+        </a>
+       
+     
+        <a href="https://unsplash.com/photos/a-close-up-of-a-monkey-with-a-smile-on-its-face-uLkwLM7Uw48" target="_blank" style="--i: 15">
+            <img src="https://images.unsplash.com/photo-1723979757235-73c4767ced1d?h=500" 
+                 alt="close-up of a pensive male orangutan">
+        </a>
+        <a href="https://unsplash.com/photos/selective-focus-of-tiger-laying-on-ground-LNSIGPuZXIg" target="_blank" style="--i: 16">
+            <img src="https://images.unsplash.com/photo-1500467525088-aafe28c0a95e?h=500" 
+                 alt="close-up of a pensive tiger lying on the ground" 
+                 style="object-position: 57%">
+        </a>
+        <a href="https://unsplash.com/photos/a-leopard-lying-on-a-rock-VDESlNV85qE" target="_blank" style="--i: 11">
+            <img src="https://images.unsplash.com/photo-1651611136918-a8a2f8bba419?h=500" 
+                 alt="pensive young leopard on a rock" 
+                 style="object-position: 43% 47%">
+        </a>
+        
+        
+       
+    </main>
+
+    <footer>
+        <b>Fin.</b>
+        <p>
+            <strong>One more thing.</strong> If the Maths and Physics infused CSS, canvas and SVG work that I've been putting out for over a decade has helped you in any way or you just like it, please remember that praise can't keep me afloat financially, but you can! So please consider being a cool cat and supporting it monthly or with a one time donation on 
+            <a href="https://ko-fi.com/anatudor" target="_blank">Ko-fi</a>. Or at least sharing this to show the world what can be done on the web these days... because I think it's pretty damn cool!
+        </p>
+    </footer>
+</body>
+</html>
