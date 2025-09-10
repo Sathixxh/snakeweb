@@ -12,6 +12,336 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+
+        .about-title-video {
+            font-size: 7.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            white-space: nowrap;
+            font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+            background: linear-gradient(
+                to bottom,
+                rgb(8 42 123 / 35%) 30%,
+                rgb(255 255 255 / 0%) 76%
+            );
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .carousel-container-video {
+            width: 100%;
+            max-width: 1600px;
+            height: 850px;
+            position: relative;
+            perspective: 1000px;
+            margin-top: 80px;
+        }
+
+        .carousel-track-video {
+            /* width: 100%; */
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .card-video {
+            position: absolute;
+            width: 380px;
+            height: 780px;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+
+        .video-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .play-btn-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(8, 42, 123, 0.8);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+
+        .play-btn-video:before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid white;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 4px;
+        }
+
+        .play-btn-video:hover {
+            background: rgba(8, 42, 123, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-btn-video.playing:before {
+            border: none;
+            width: 16px;
+            height: 16px;
+            background: white;
+            margin-left: 0;
+        }
+
+        .video-wrapper.playing .play-btn-video {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .card-video.center-video {
+            z-index: 10;
+            transform: scale(1.1) translateZ(0);
+        }
+
+        .card-video.center-video video {
+            filter: none;
+        }
+
+        .card-video.left-2-video {
+            z-index: 1;
+            transform: translateX(-400px) scale(0.8) translateZ(-300px);
+            opacity: 0.7;
+        }
+
+        .card-video.left-2-video video {
+            filter: grayscale(100%);
+        }
+
+        .card-video.left-1-video {
+            z-index: 5;
+            transform: translateX(-200px) scale(0.9) translateZ(-100px);
+            opacity: 0.9;
+        }
+
+        .card-video.left-1-video video {
+            filter: grayscale(100%);
+        }
+
+        .card-video.right-1-video {
+            z-index: 5;
+            transform: translateX(200px) scale(0.9) translateZ(-100px);
+            opacity: 0.9;
+        }
+
+        .card-video.right-1-video video {
+            filter: grayscale(100%);
+        }
+
+        .card-video.right-2-video {
+            z-index: 1;
+            transform: translateX(400px) scale(0.8) translateZ(-300px);
+            opacity: 0.7;
+        }
+
+        .card-video.right-2-video video {
+            filter: grayscale(100%);
+        }
+
+        .card-video.hidden-video {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .member-info-video {
+            text-align: center;
+            margin-top: 40px;
+            transition: all 0.5s ease-out;
+        }
+
+        .member-name-video {
+            color: rgb(8, 42, 123);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .member-name-video::before,
+        .member-name-video::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            width: 100px;
+            height: 2px;
+            background: rgb(8, 42, 123);
+        }
+
+        .member-name-video::before {
+            left: -120px;
+        }
+
+        .member-name-video::after {
+            right: -120px;
+        }
+
+        .member-role-video {
+            color: #848696;
+            font-size: 1.5rem;
+            font-weight: 500;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 10px 0;
+            margin-top: -15px;
+            position: relative;
+        }
+
+        .dots-video {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 60px;
+        }
+
+        .dot-video {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(8, 42, 123, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot-video.active-video {
+            background: rgb(8, 42, 123);
+            transform: scale(1.2);
+        }
+
+        .nav-arrow-video {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(8, 42, 123, 0.6);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 20;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: none;
+            outline: none;
+            padding-bottom: 4px;
+        }
+
+        .nav-arrow-video:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-arrow-video.left-video {
+            left: 20px;
+            padding-right: 3px;
+        }
+
+        .nav-arrow-video.right-video {
+            right: 20px;
+            padding-left: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .about-title-video {
+                font-size: 4.5rem;
+            }
+
+            .card-video {
+                width: 300px;
+                height: 580px;
+            }
+
+            .card-video.left-2-video {
+                transform: translateX(-250px) scale(0.8) translateZ(-300px);
+            }
+
+            .card-video.left-1-video {
+                transform: translateX(-120px) scale(0.9) translateZ(-100px);
+            }
+
+            .card-video.right-1-video {
+                transform: translateX(120px) scale(0.9) translateZ(-100px);
+            }
+
+            .card-video.right-2-video {
+                transform: translateX(250px) scale(0.8) translateZ(-300px);
+            }
+
+            .member-name-video {
+                font-size: 2rem;
+            }
+
+            .member-role-video {
+                font-size: 1.2rem;
+            }
+
+            .member-name-video::before,
+            .member-name-video::after {
+                width: 50px;
+            }
+
+            .member-name-video::before {
+                left: -70px;
+            }
+
+            .member-name-video::after {
+                right: -70px;
+            }
+
+            .play-btn-video {
+                width: 40px;
+                height: 40px;
+            }
+
+            .play-btn-video:before {
+                border-left-width: 15px;
+                border-top-width: 9px;
+                border-bottom-width: 9px;
+            }
+        }
         .carouselvideo {
   position: relative;
   width: 400px;
@@ -42,7 +372,7 @@ video {
   border-radius: 16px;
   display: block;
 }
-
+ 
     .video-wrapper {
       position: relative;
       min-width: 100%;
@@ -1158,6 +1488,9 @@ video {
 	}
 }
 
+
+
+
     </style>
 </head>
 
@@ -1280,6 +1613,7 @@ video {
             </div>
         </div>
     </section>
+    
 <!--   
 
 <div class="carousel-container">
@@ -1414,13 +1748,13 @@ video {
         </div>
     </section>
 
-
+<!-- 
 
     <div class="carouselvideo" style="  display: flex;
     justify-content: center;
     align-items: center;">
         <div class="carouselvideo-track" id="carouselvideoTrack">
-          <!-- Repeat video wrappers -->
+  
           <div class="video-wrapper">
             <video preload="metadata">
               <source src="assets/Screencast from 08-09-25 12:55:18 PM IST.webm" type="video/mp4">
@@ -1453,14 +1787,80 @@ video {
           </div>
         </div>
     
-        <!-- arrowvideos -->
+    
         <button class="arrowvideo left" id="prevBtn">&#10094;</button>
         <button class="arrowvideo right" id="nextBtn">&#10095;</button>
-      </div>
-    
+      </div> -->
+      <div class="carousel-container-video"  >
+        <button class="nav-arrow-video left-video">‹</button>
+        <div class="carousel-track-video">
+            <div class="card-video" data-index="0">
+                <div class="video-wrapper">
+                    <video preload="metadata">
+                        <source src="assets/Screencast from 08-09-25 12:55:18 PM IST.webm" type="video/mp4">
+                      </video>
+                    <div class="play-btn-video"></div>
+                </div>
+            </div>
+            <div class="card-video" data-index="1">
+                <div class="video-wrapper">
+                    <video preload="metadata" muted>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="play-btn-video"></div>
+                </div>
+            </div>
+            <div class="card-video" data-index="2">
+                <div class="video-wrapper">
+                    <video preload="metadata" muted>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="play-btn-video"></div>
+                </div>
+            </div>
+            <div class="card-video" data-index="3">
+                <div class="video-wrapper">
+                    <video preload="metadata" muted>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="play-btn-video"></div>
+                </div>
+            </div>
+            <div class="card-video" data-index="4">
+                <div class="video-wrapper">
+                    <video preload="metadata" muted>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="play-btn-video"></div>
+                </div>
+            </div>
+            <div class="card-video" data-index="5">
+                <div class="video-wrapper">
+                    <video preload="metadata" muted>
+                        <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </source>
+                    <div class="play-btn-video"></div>
+                </div>
+            </div>
+        </div>
+        <button class="nav-arrow-video right-video">›</button>
+    </div>
+
+    <div class="member-info-video">
+        <h2 class="member-name-video"></h2>
+        <p class="member-role-video"></p>
+    </div>
+
+   
+
 
     <!-- Celebration Section -->
-    <section id="celebration" class="section section-celebration">
+    <section    id="celebration" class="section section-celebration "   >
         <div class="celebration-floating">
             <div class="celebration-particle" style="top: 20%; left: 10%; color: var(--primary); font-size: 1.2rem;">💜</div>
             <div class="celebration-particle" style="top: 60%; left: 20%; color: var(--secondary); font-size: 1rem;">✨</div>
@@ -1470,7 +1870,7 @@ video {
         </div>
 
 
-        <div class="container">
+        <div class="container  ">
             <div class="section-title animate-on-scroll">
                 <h2>Let's Celebrate! 🎉</h2>
                 <p>A collection of our most joyful moments, captured in photos and videos. Each one tells a story of our incredible friendship!</p>
@@ -1533,53 +1933,198 @@ video {
     <script>
 
 
+const teamMembersVideo = [
+           
+        ];
 
+        const cardsVideo = document.querySelectorAll(".card-video");
+        const dotsVideo = document.querySelectorAll(".dot-video");
+        const memberNameVideo = document.querySelector(".member-name-video");
+        const memberRoleVideo = document.querySelector(".member-role-video");
+        const leftArrowVideo = document.querySelector(".nav-arrow-video.left-video");
+        const rightArrowVideo = document.querySelector(".nav-arrow-video.right-video");
+        const playBtnsVideo = document.querySelectorAll(".play-btn-video");
+        const videosCarousel = document.querySelectorAll(".card-video video");
+        
+        let currentIndexVideo = 0;
+        let isAnimatingVideo = false;
+        let currentlyPlayingVideoCarousel = null;
 
+        function pauseAllVideosCarousel() {
+            videosCarousel.forEach((video, index) => {
+                video.pause();
+                video.currentTime = 0;
+                const wrapper = video.closest('.video-wrapper');
+                wrapper.classList.remove('playing');
+            });
+            currentlyPlayingVideoCarousel = null;
+        }
 
-const track = document.getElementById("carouselvideoTrack");
-    const videos = document.querySelectorAll(".video-wrapper video");
-    const playButtons = document.querySelectorAll(".play-btn");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
+        function updateCarouselVideo(newIndex) {
+            if (isAnimatingVideo) return;
+            isAnimatingVideo = true;
 
-    let currentIndexvideo = 0;
+            // Pause all videos when changing slides
+            pauseAllVideosCarousel();
 
-    function updateCarouselvideo() {
-      track.style.transform = `translateX(-${currentIndexvideo * 100}%)`;
-      // pause other videos when switching
-      videos.forEach(v => {
-        v.pause();
-        v.removeAttribute("controls");
-      });
-      playButtons.forEach(btn => btn.style.display = "flex");
-    }
+            currentIndexVideo = (newIndex + cardsVideo.length) % cardsVideo.length;
 
-    prevBtn.addEventListener("click", () => {
-      currentIndexvideo = (currentIndexvideo > 0) ? currentIndexvideo - 1 : videos.length - 1;
-      updateCarouselvideo();
-    });
+            cardsVideo.forEach((card, i) => {
+                const offset = (i - currentIndexVideo + cardsVideo.length) % cardsVideo.length;
 
-    nextBtn.addEventListener("click", () => {
-      currentIndexvideo = (currentIndexvideo < videos.length - 1) ? currentIndexvideo + 1 : 0;
-      updateCarouselvideo();
-    });
+                card.classList.remove(
+                    "center-video",
+                    "left-1-video",
+                    "left-2-video",
+                    "right-1-video",
+                    "right-2-video",
+                    "hidden-video"
+                );
 
-    playButtons.forEach((btn, index) => {
-      const video = videos[index];
-      btn.addEventListener("click", () => {
-        btn.style.display = "none";
-        video.play();
-        video.setAttribute("controls", "true");
-      });
-    });
+                if (offset === 0) {
+                    card.classList.add("center-video");
+                } else if (offset === 1) {
+                    card.classList.add("right-1-video");
+                } else if (offset === 2) {
+                    card.classList.add("right-2-video");
+                } else if (offset === cardsVideo.length - 1) {
+                    card.classList.add("left-1-video");
+                } else if (offset === cardsVideo.length - 2) {
+                    card.classList.add("left-2-video");
+                } else {
+                    card.classList.add("hidden-video");
+                }
+            });
 
-    // Show first frame as thumbnail
-    videos.forEach(video => {
-      video.addEventListener("loadeddata", () => {
-        video.currentTime = 0;
-        video.pause();
-      });
-    });
+            dotsVideo.forEach((dot, i) => {
+                dot.classList.toggle("active-video", i === currentIndexVideo);
+            });
+
+            memberNameVideo.style.opacity = "0";
+            memberRoleVideo.style.opacity = "0";
+
+            setTimeout(() => {
+                memberNameVideo.textContent = teamMembersVideo[currentIndexVideo].name;
+                memberRoleVideo.textContent = teamMembersVideo[currentIndexVideo].role;
+                memberNameVideo.style.opacity = "1";
+                memberRoleVideo.style.opacity = "1";
+            }, 300);
+
+            setTimeout(() => {
+                isAnimatingVideo = false;
+            }, 800);
+        }
+
+        function handlePlayButtonVideo(playBtn, video) {
+            const wrapper = video.closest('.video-wrapper');
+            
+            if (video.paused) {
+                // Pause other videos first
+                pauseAllVideosCarousel();
+                
+                // Play this video
+                video.play();
+                wrapper.classList.add('playing');
+                currentlyPlayingVideoCarousel = video;
+            } else {
+                video.pause();
+                wrapper.classList.remove('playing');
+                currentlyPlayingVideoCarousel = null;
+            }
+        }
+
+        // Initialize play buttons
+        playBtnsVideo.forEach((playBtn, index) => {
+            const video = videosCarousel[index];
+            
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                handlePlayButtonVideo(playBtn, video);
+            });
+
+            video.addEventListener('ended', () => {
+                const wrapper = video.closest('.video-wrapper');
+                wrapper.classList.remove('playing');
+                video.currentTime = 0;
+                currentlyPlayingVideoCarousel = null;
+            });
+
+            video.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!video.paused) {
+                    handlePlayButtonVideo(playBtn, video);
+                }
+            });
+        });
+
+        leftArrowVideo.addEventListener("click", () => {
+            updateCarouselVideo(currentIndexVideo - 1);
+        });
+
+        rightArrowVideo.addEventListener("click", () => {
+            updateCarouselVideo(currentIndexVideo + 1);
+        });
+
+        dotsVideo.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                updateCarouselVideo(i);
+            });
+        });
+
+        cardsVideo.forEach((card, i) => {
+            card.addEventListener("click", (e) => {
+                // Don't change carousel if clicking on video or play button
+                if (e.target.tagName === 'VIDEO' || e.target.classList.contains('play-btn-video')) {
+                    return;
+                }
+                updateCarouselVideo(i);
+            });
+        });
+
+        document.addEventListener("keydown", (e) => {
+            // Only handle video carousel keys when video carousel is active
+            if (e.key === "ArrowLeft" && e.ctrlKey) {
+                updateCarouselVideo(currentIndexVideo - 1);
+            } else if (e.key === "ArrowRight" && e.ctrlKey) {
+                updateCarouselVideo(currentIndexVideo + 1);
+            } else if (e.key === " " && e.ctrlKey) {
+                e.preventDefault();
+                const centerCard = document.querySelector('.card-video.center-video');
+                if (centerCard) {
+                    const video = centerCard.querySelector('video');
+                    const playBtn = centerCard.querySelector('.play-btn-video');
+                    handlePlayButtonVideo(playBtn, video);
+                }
+            }
+        });
+
+        let touchStartXVideo = 0;
+        let touchEndXVideo = 0;
+
+        document.querySelector('.carousel-container-video').addEventListener("touchstart", (e) => {
+            touchStartXVideo = e.changedTouches[0].screenX;
+        });
+
+        document.querySelector('.carousel-container-video').addEventListener("touchend", (e) => {
+            touchEndXVideo = e.changedTouches[0].screenX;
+            handleSwipeVideo();
+        });
+
+        function handleSwipeVideo() {
+            const swipeThreshold = 50;
+            const diff = touchStartXVideo - touchEndXVideo;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    updateCarouselVideo(currentIndexVideo + 1);
+                } else {
+                    updateCarouselVideo(currentIndexVideo - 1);
+                }
+            }
+        }
+
+        // Initialize carousel
+        updateCarouselVideo(0);
 
  src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" 
 
@@ -2052,6 +2597,9 @@ updateCarousel(0);
     </footer>
 </body>
 </html>
+
+
+
 
 
 
