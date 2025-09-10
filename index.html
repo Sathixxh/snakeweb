@@ -13,7 +13,172 @@
             box-sizing: border-box;
         }
 
+        .afimage-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
+        .afimage-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        .afimage-card-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .afimage-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            --position: 50%;
+            aspect-ratio: 12/12;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            min-height: 350px;
+        }
+
+        .afimage-image-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .afimage-slider-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .afimage-image-before {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            clip-path: inset(0 calc(100% - var(--position)) 0 0);
+            z-index: 2;
+        }
+
+        .afimage-image-after {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            clip-path: inset(0 0 0 var(--position));
+        }
+
+        .afimage-slider {
+            position: absolute;
+            inset: 0;
+            cursor: pointer;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+
+        .afimage-slider:focus-visible ~ .afimage-slider-button {
+            outline: 3px solid #667eea;
+            outline-offset: 3px;
+        }
+
+        .afimage-slider-line {
+            position: absolute;
+            inset: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            left: var(--position);
+            transform: translateX(-50%);
+            pointer-events: none;
+            z-index: 2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .afimage-slider-button {
+            position: absolute;
+            background: white;
+            color: #667eea;
+            padding: 0.75rem;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            top: 50%;
+            left: var(--position);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 4;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+        .afimage-slider-button:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .afimage-image-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding: 0 1rem;
+        }
+
+        .afimage-image-label {
+            background: #f8f9fa;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .afimage-image-label.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .afimage-cards-container {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .afimage-cards-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+            
+            .afimage-card {
+                padding: 1rem;
+            }
+            
+            .afimage-card-title {
+                font-size: 1.2rem;
+            }
+            
+            .afimage-container {
+                aspect-ratio: 4/3;
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .afimage-container {
+                min-height: 200px;
+            }
+        }
         .about-title-video {
             font-size: 7.5rem;
             font-weight: 900;
@@ -1613,6 +1778,239 @@ video {
             </div>
         </div>
     </section>
+
+<div class="afimage-cards-container">
+    <!-- Card 1 -->
+    <div class="afimage-card">
+        <h2 class="afimage-card-title">Landscape Transformation</h2>
+        <div class="afimage-container" data-card="1">
+            <div class="afimage-image-container">
+                <img
+                    class="afimage-image-after afimage-slider-image"
+                    src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="After Image"
+                />
+                <img
+                    class="afimage-image-before afimage-slider-image"
+                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Before Image"
+                />
+            </div>
+            
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value="100"
+                aria-label="Slider to compare images"
+                class="afimage-slider"
+            />
+            
+            <div class="afimage-slider-line" aria-hidden="true"></div>
+            
+            <div class="afimage-slider-button" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="afimage-image-labels">
+            <span class="afimage-image-label afimage-label-before">Before</span>
+            <span class="afimage-image-label afimage-label-after">After</span>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="afimage-card">
+        <h2 class="afimage-card-title">City Development</h2>
+        <div class="afimage-container" data-card="2">
+            <div class="afimage-image-container">
+                <img
+                    class="afimage-image-after afimage-slider-image"
+                    src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="After Image"
+                />
+                <img
+                    class="afimage-image-before afimage-slider-image"
+                    src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Before Image"
+                />
+            </div>
+            
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value="100"
+                aria-label="Slider to compare images"
+                class="afimage-slider"
+            />
+            
+            <div class="afimage-slider-line" aria-hidden="true"></div>
+            
+            <div class="afimage-slider-button" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="afimage-image-labels">
+            <span class="afimage-image-label afimage-label-before">Old City</span>
+            <span class="afimage-image-label afimage-label-after">Modern City</span>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="afimage-card">
+        <h2 class="afimage-card-title">Interior Design</h2>
+        <div class="afimage-container" data-card="3">
+            <div class="afimage-image-container">
+                <img
+                    class="afimage-image-after afimage-slider-image"
+                    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="After Image"
+                />
+                <img
+                    class="afimage-image-before afimage-slider-image"
+                    src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Before Image"
+                />
+            </div>
+            
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value="100"
+                aria-label="Slider to compare images"
+                class="afimage-slider"
+            />
+            
+            <div class="afimage-slider-line" aria-hidden="true"></div>
+            
+            <div class="afimage-slider-button" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="afimage-image-labels">
+            <span class="afimage-image-label afimage-label-before">Original</span>
+            <span class="afimage-image-label afimage-label-after">Renovated</span>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="afimage-card">
+        <h2 class="afimage-card-title">Beach Evolution</h2>
+        <div class="afimage-container" data-card="4">
+            <div class="afimage-image-container">
+                <img
+                    class="afimage-image-after afimage-slider-image"
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="After Image"
+                />
+                <img
+                    class="afimage-image-before afimage-slider-image"
+                    src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Before Image"
+                />
+            </div>
+            
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value="100"
+                aria-label="Slider to compare images"
+                class="afimage-slider"
+            />
+            
+            <div class="afimage-slider-line" aria-hidden="true"></div>
+            
+            <div class="afimage-slider-button" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="afimage-image-labels">
+            <span class="afimage-image-label afimage-label-before">Stormy</span>
+            <span class="afimage-image-label afimage-label-after">Peaceful</span>
+        </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="afimage-card">
+        <h2 class="afimage-card-title">Architecture Progress</h2>
+        <div class="afimage-container" data-card="5">
+            <div class="afimage-image-container">
+                <img
+                    class="afimage-image-after afimage-slider-image"
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="After Image"
+                />
+                <img
+                    class="afimage-image-before afimage-slider-image"
+                    src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                    alt="Before Image"
+                />
+            </div>
+            
+            <input
+                type="range"
+                min="0"
+                max="100"
+                value="100"
+                aria-label="Slider to compare images"
+                class="afimage-slider"
+            />
+            
+            <div class="afimage-slider-line" aria-hidden="true"></div>
+            
+            <div class="afimage-slider-button" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+                    <rect width="256" height="256" fill="none"></rect>
+                    <line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <line x1="96" y1="128" x2="16" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <polyline points="48 160 16 128 48 96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="160" y1="128" x2="240" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                    <polyline points="208 96 240 128 208 160" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="afimage-image-labels">
+            <span class="afimage-image-label afimage-label-before">Construction</span>
+            <span class="afimage-image-label afimage-label-after">Completed</span>
+        </div>
+    </div>
+</div>
+
     
 <!--   
 
@@ -1933,6 +2331,47 @@ video {
     <script>
 
 
+// Initialize all afimage sliders
+document.addEventListener('DOMContentLoaded', function() {
+    const afimageCards = document.querySelectorAll('.afimage-card');
+    
+    afimageCards.forEach((card, index) => {
+        const container = card.querySelector('.afimage-container');
+        const slider = card.querySelector('.afimage-slider');
+        const labelBefore = card.querySelector('.afimage-label-before');
+        const labelAfter = card.querySelector('.afimage-label-after');
+
+        // Update slider position and labels
+        function updateAfimageSlider(value) {
+            container.style.setProperty('--position', `${value}%`);
+            
+            // Update active label based on slider position
+            if (value < 50) {
+                labelAfter.classList.add('active');
+                labelBefore.classList.remove('active');
+            } else {
+                labelBefore.classList.add('active');
+                labelAfter.classList.remove('active');
+            }
+        }
+
+        // Initialize
+        updateAfimageSlider(slider.value);
+
+        // Handle slider input
+        slider.addEventListener('input', (e) => {
+            updateAfimageSlider(e.target.value);
+        });
+
+        // Add smooth transition on mouse leave
+        container.addEventListener('mouseleave', () => {
+            container.style.transition = 'all 0.3s ease';
+            setTimeout(() => {
+                container.style.transition = '';
+            }, 300);
+        });
+    });
+});
 const teamMembersVideo = [
            
         ];
